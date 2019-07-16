@@ -48,11 +48,9 @@ class grille
 			{
 				tmp = get_carre(a);
 				b = -1;
-				while (b < size)
-				{
-					table[a] = (collision(tmp, perim[b])) ? 0 : 1;
-					++b;
-				}
+				while (++b < size)
+					if (collision(tmp, perim[b]))
+						table[a] = 0;
 			}
 			free(perim);
 			perim = NULL;
